@@ -4,5 +4,5 @@ export default {
     type: 'string',
   },
   uiSchema: {},
-  default: 1,
+  default: 'zt',
 }
