@@ -12,6 +12,7 @@
     "ajv": "^7.1.1",
     "ajv-errors": "^2.0.0",
     "ajv-i18n": "^3.6.0",
+    "circular-dependency-plugin": "^5.2.2",
     "core-js": "^3.6.5",
     "json-schema-merge-allof": "^0.7.0",
     "jsonpointer": "^4.1.0",
