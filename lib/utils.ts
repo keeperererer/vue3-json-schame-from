@@ -1,6 +1,6 @@
 import Ajv from 'ajv'
 
-import { Schema } from './type'
+import { Schema } from './types'
 
 import jsonpointer from 'jsonpointer'
 import union from 'lodash.union'

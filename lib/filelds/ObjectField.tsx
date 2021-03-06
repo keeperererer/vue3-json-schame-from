@@ -1,5 +1,5 @@
 import { DefineComponent, defineComponent, ExtractPropTypes, inject } from 'vue'
-import { FiledPropsDefine, CommonFieldType } from '../type'
+import { FiledPropsDefine, CommonFieldType } from '../types'
 import { useVJSFContext } from '../context'
 import { isObject } from '../utils'
 

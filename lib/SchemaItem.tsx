@@ -1,43 +1,46 @@
 import { computed, defineComponent, PropType } from 'vue'
 import NumberField from './filelds/NumberField'
-// import NumberField from './filelds/NumberField.vue'
 import StringField from './filelds/StringField'
-// import StringField from './filelds/StringField.vue'
 import ObjectField from './filelds/ObjectField'
-import { Schema, SchemaTypes, FiledPropsDefine } from './type'
+import ArrayField from './filelds/ArrayField'
+import { Schema, SchemaTypes, FiledPropsDefine } from './types'
 
 import { retrieveSchema } from './utils'
 export default defineComponent({
   name: 'SchemaItem',
   props: FiledPropsDefine,
-  setup(props) {
+  setup(porps) {
     const retrievedSchemaRef = computed(() => {
-      const { schema, rootSchema, value } = props
+      const { schema, rootSchema, value } = porps
       return retrieveSchema(schema, rootSchema, value)
     })
     return () => {
-      const { schema, rootSchema, value } = props
+      const { schema, rootSchema, value } = porps
       const retrievedSchema = retrievedSchemaRef.value
       const type = schema.type
-      let Component: any
+      let ComPonent: any
       switch (type) {
         case SchemaTypes.STRING: {
-          Component = StringField
+          ComPonent = StringField
           break
         }
         case SchemaTypes.NUMBER: {
-          Component = NumberField
+          ComPonent = NumberField
           break
         }
         case SchemaTypes.OBJECT: {
-          Component = ObjectField
+          ComPonent = ObjectField
+          break
+        }
+        case SchemaTypes.ARRAY: {
+          ComPonent = ArrayField
           break
         }
         default: {
-          console.log('warn')
+          console.warn(`{type} is not supported`)
         }
       }
-      return <Component {...props} schema={retrievedSchema} />
+      return <ComPonent {...porps} schema={retrievedSchema} />
     }
   },
 })
